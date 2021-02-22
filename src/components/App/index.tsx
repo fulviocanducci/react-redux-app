@@ -5,7 +5,7 @@ import { actionCounter } from "../../actions";
 import Score from "../../components/Score";
 
 function App(props: any) {
-  const [local, setLocal] = useState<string>("0");
+  const [local, setLocal] = useState("0");
   const handleOnClickSetValue = () => {
     props.clickSetValue(+local || 0);
   };
@@ -15,10 +15,14 @@ function App(props: any) {
       <div>Counter Local: {props.value}</div>
       <button onClick={props.clickIncrement}>Increment</button>
       <button onClick={props.clickDecrement}>Decrement</button>
-      <div>
-        <input value={local} onChange={(e) => setLocal(e.target.value)} />
-        <button onClick={handleOnClickSetValue}>Set Value</button>
+      <div style={{ marginTop: 10 }}>
+        <input
+          type="text"
+          value={local}
+          onChange={(e) => setLocal(e.target.value)}
+        />
       </div>
+      <button onClick={handleOnClickSetValue}>Set Value</button>
     </div>
   );
 }
